@@ -25,6 +25,9 @@ describe('dealership path', {:type => :feature}) do
       fill_in('make', :with=>'Tesla')
       fill_in('model', :with=>'BnkACt')
       fill_in('year', :with=>'2017')
+      fill_in('color', :with=>'clear')
+      fill_in('engine_size', :with=>'none')
+      fill_in('number_of_doors', :with=>'1')
       click_on('Add Vehicle')
       expect(page).to have_content('Tesla')
     end

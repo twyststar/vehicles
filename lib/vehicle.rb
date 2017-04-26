@@ -1,23 +1,15 @@
 class Vehicle
   @@all_vehicles = []
-  define_method(:initialize) do |make, model, year|
-    @year = year
-    @make = make
-    @model = model
-    @id = @@all_vehicles.length().+(1)
-  end
+  attr_reader(:make, :model, :year, :color, :engine_size, :number_of_doors, :id)
 
-  define_method(:make) do
-    @make
-  end
-  define_method(:id) do
-    @id
-  end
-  define_method(:year) do
-    @year
-  end
-  define_method(:model) do
-    @model
+  define_method(:initialize) do |attributes|
+    @make = attributes.fetch(:make)
+    @model = attributes.fetch(:model)
+    @year = attributes.fetch(:year).to_i()
+    @color = attributes.fetch(:color)
+    @engine_size= attributes.fetch(:engine_size)
+    @number_of_doors = attributes.fetch(:number_of_doors)
+    @id = @@all_vehicles.length().+(1)
   end
 
   define_singleton_method(:find)do |identification|
@@ -48,5 +40,4 @@ class Vehicle
     new_enough = age().<=(15)
     american && new_enough
   end
-
 end
