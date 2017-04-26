@@ -32,13 +32,6 @@ get('/dealerships/:id/vehicles/new') do
     @dealership = Dealership.find(params.fetch('id').to_i())
     erb(:dealership_vehicles_form)
 end
-# get('/vehicles') do
-#   @vehicles = Vehicle.all()
-#   erb(:vehicles)
-# end
-# get('/vehicles/new') do
-#   erb(:vehicles_form)
-# end
 
 post('/vehicles') do
   @make = params.fetch("make")
